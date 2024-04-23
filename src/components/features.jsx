@@ -1,25 +1,75 @@
 import React from "react";
+import { Box, Typography } from "@mui/material";
 
 export const Features = (props) => {
   return (
-    <div id="features" className="text-center">
-      <div className="container">
-        <div className="col-md-10 col-md-offset-1 section-title">
-          <h2>Features</h2>
-        </div>
-        <div className="row">
+    <Box id="features" sx={{ textAlign: "center" }}>
+      <Box className="container">
+        <Typography
+          variant="h2"
+          sx={{
+            marginBottom: "70px",
+            textTransform: "uppercase",
+            fontWeight: 800,
+            fontSize: "36px",
+            color: "#333",
+            fontFamily: "'Raleway', sans-serif",
+            position: "relative",
+          }}
+        >
+          Features
+          <Box
+            sx={{
+              position: "absolute",
+              background: "linear-gradient(to right, #5ca9fb 0%, #6372ff 100%)",
+              height: "4px",
+              width: "60px",
+              bottom: "0",
+              marginLeft: "-30px",
+              left: "50%",
+              marginTop: "10px",
+            }}
+          />
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            gap: "8rem",
+          }}
+        >
           {props.data
             ? props.data.map((d, i) => (
-                <div key={`${d.title}-${i}`} className="col-xs-6 col-md-3">
-                  {" "}
+                <Box
+                  key={`${d.title}-${i}`}
+                  sx={{
+                    width: "100%",
+                    maxWidth: "200px",
+                    textAlign: "center",
+                    margin: "0 1rem 2rem",
+                  }}
+                >
                   <i className={d.icon}></i>
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
-                </div>
+                  <Typography
+                    variant="h3"
+                    sx={{
+                      marginBottom: "1rem",
+                      fontSize: "20px",
+                      fontWeight: 600,
+                      color: "#333",
+                    }}
+                  >
+                    {d.title}
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontSize: "15px" }}>
+                    {d.text}
+                  </Typography>
+                </Box>
               ))
             : "Loading..."}
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
