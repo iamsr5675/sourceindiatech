@@ -27,8 +27,8 @@ export const Team = (props) => {
           {props.data
             ? props.data.map((d, i) => (
                 <Grid key={`${d.name}-${i}`} item xs={12} sm={6} md={3}>
-                  <Card sx={{ flex: 1 }}>
-                    <CardMedia component="img" image={d.img} alt={d.name} />
+                  <Card sx={{ maxWidth: 345 }}>
+                    <CardMedia component="img" image={d.img} alt={d.name} sx={{borderRadius: 200}}/>
                     <CardContent>
                       <Typography
                         variant="h4"
